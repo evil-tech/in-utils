@@ -1,0 +1,19 @@
+{
+  "name": "in-utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"You have no idea what you're doing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evil-tech/in-utils.git"
+  },
+  "author": "AntoDev96",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evil-tech/in-utils/issues"
+  },
+  "homepage": "https://github.com/evil-tech/in-utils#readme"
+}
