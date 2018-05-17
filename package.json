@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"You have no idea what you're doing\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -15,5 +14,9 @@
   "bugs": {
     "url": "https://github.com/evil-tech/in-utils/issues"
   },
-  "homepage": "https://github.com/evil-tech/in-utils#readme"
+  "homepage": "https://github.com/evil-tech/in-utils#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
 }

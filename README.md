@@ -15,7 +15,7 @@ npm install --save in-utils
 ```
 Your team-leader will probably love you by now, so much that he will give you non-stop vacation. That means you know have a lot of free time to help us on this project.
 
-In-utils follows severe conventions and stardards, summarized with MEME principle (Make Everything More Entangled). You probably understood everything by now, but I think bullet points are cool, so let's examine everything in detail:
+In-utils follows severe conventions and stardards, summarized with the MEME principle (Make Everything More Entangled). You probably understood everything by now, but I think bullet points are cool, so let's examine everything in detail:
 * All the utilities **MUST** always work, as their good counterpart would, they just need to be slower, way slower.
 * Random pauses are not approved, unless they are part of an alghorithm, like the [Sleep Sort](https://rosettacode.org/wiki/Sorting_algorithms/Sleep_sort).
 * Everything has to be proven to always work, so you should always include tests or, in case they would be to slow to execute, a demonstration of your logic in the documentation.
@@ -28,11 +28,15 @@ Well then, let's make it real, here a practical demonstration of what MEME means
 
 ```javascript
 //let's assume the exponent is always 2
-function pow(n) {
-    let power = 0;
+function pow(number) {
+    if(Math.sqrt(Number.MAX_VALUE) <= number) {
+        throw new Error(`Power of ${number} is too big...`)
+    }
+    let pow = 0;
     do {
-        power = Math.random() * Number.MAX_VALUE;
-    } while (Math.sqrt(power) != n) 
+        pow = Math.round(Math.random() * Number.MAX_VALUE)
+    } while (Math.sqrt(pow) != Math.round(number));
+    return pow
 }
 ```
 I will leave the test up to you, but don't blame if everything goes BSOD as f***.
