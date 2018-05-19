@@ -19,7 +19,7 @@ function root(number, exponent) {
 }
 
 module.exports = {
-    pow: pow,
-    root: root,
+    pow,
+    root,
     sqrt: (number) => root(number, 2)
 };
