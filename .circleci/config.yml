@@ -11,6 +11,7 @@ jobs:
   publish:
     docker:
       - image: circleci/node:10-browsers
+    working_directory: ~/repo
     steps:
       - attach_workspace:
           at: ~/repo
@@ -25,9 +26,4 @@ workflows:
   test-deploy:
     jobs:
       - test
-      - publish:
-          requires:
-            - test
-          filters:
-            - branches:
-                only: /master/
+      - publish
