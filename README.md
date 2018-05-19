@@ -11,7 +11,7 @@ Are you still reading? Really?!? You're probably messed up and have no social li
 **In-utils** is a set of standard javascript utilities with a twist, an horrible one. They're made to be as slow as humanly possible, but still completely idempotent and deterministic.
 You don't believe me? Just try to include them in your production code with: 
 ```bash
-npm install --save in-utils
+npm install --save in-utils-js
 ```
 Your team-leader will probably love you by now, so much that he will give you non-stop vacation. That means you know have a lot of free time to help us on this project.
 
