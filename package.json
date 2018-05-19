@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "mocha --recursive src/test/",
+    "sadistic": "npm --slow_test_enabled=true test"
   },
   "repository": {
     "type": "git",
@@ -16,7 +18,11 @@
   },
   "homepage": "https://github.com/evil-tech/in-utils#readme",
   "directories": {
-    "lib": "lib",
-    "test": "test"
+    "lib": "src/lib",
+    "test": "src/test"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
   }
 }
