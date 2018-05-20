@@ -51,7 +51,7 @@ describe('array', () => {
             expect(sort([43, 12, 88])).to.ordered.members([88, 43, 12])
         })
         it('sort ASC [43, 12, 88] = [12, 43, 88]', () => {
-            expect(sort([43, 12, 88], true)).to.ordered.members([12, 43, 88])
+            expect(sort([43, 12, 88], false)).to.ordered.members([12, 43, 88])
         })
     })
 })

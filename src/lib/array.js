@@ -1,13 +1,14 @@
-function sort(array, ascending = false, sorter = (first, second) => first - second) {
+function sort(array, descending = true, sorter = (first, second) => first - second) {
     //based on bogobogosort http://www.dangermouse.net/esoteric/bogobogosort.html
     if(array.length <= 1) {
         return array
     }
     let copy = array.slice(0)
     while(true) {
-        const part = sort(copy.slice(0, copy.length - 1), ascending, sorter)
+        const part = sort(copy.slice(0, copy.length - 1), descending, sorter)
         const last = copy[copy.length - 1]
-        if(sorter(max(part), last) >= 0 ^ ascending) {
+        const best = descending ? min(part) : max(part)
+        if(sorter(best, last) <= 0 ^ descending) {
             return [...part, last]
         }
         copy = randomize(copy)
