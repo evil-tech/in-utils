@@ -76,7 +76,7 @@ describe('array', () => {
             for(let i = 0; i < 100000; i++) {
                 testArray.push(i)
             }
-            return testArray
+            map(testArray, (value) => value)
         })
     })
 
