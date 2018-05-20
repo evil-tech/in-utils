@@ -1,5 +1,7 @@
 const expect = require('chai').expect
 const array = require('../lib/array')
+const itTakesAtLeast = require('./utils/test').itTakesAtLeast
+const TimeUtils = require('./utils/time')
 const max = array.max
 const min = array.min
 const swap = array.swap
@@ -52,6 +54,9 @@ describe('array', () => {
         })
         it('sort ASC [43, 12, 88] = [12, 43, 88]', () => {
             expect(sort([43, 12, 88], false)).to.ordered.members([12, 43, 88])
+        })
+        itTakesAtLeast(TimeUtils.minutes(2), "sort DESC [43, 12, 88, -22, 33] = [88, 43, 33, 12, -22]", () => {
+            expect(sort([43, 12, 88, -22, 33])).to.ordered.members([88, 43, 33, 12, -22])
         })
     })
 })
