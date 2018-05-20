@@ -1,3 +1,26 @@
+function each(array, consumer) {
+    map(array, consumer)
+}
+
+function map(array, mapper) {
+    const mapResult = []
+    while(mapResult.length != array.length) {
+        const callIndex = Math.floor(Math.random() * array.length)
+        if(mapResult.length == callIndex) {
+            mapResult.push(mapper(array[callIndex], callIndex, array))
+        }
+    }
+    return mapResult
+}
+
+function reduce(array, reducer) {
+    let total
+    map(array, (value) => {
+        total = reducer(total, value)
+    })
+    return total
+}
+
 function sort(array, descending = true, sorter = (first, second) => first - second) {
     //based on bogobogosort http://www.dangermouse.net/esoteric/bogobogosort.html
     if(array.length <= 1) {
@@ -70,6 +93,9 @@ function min(array, minValue = Number.MAX_VALUE) {
 }
 
 module.exports = {
+    map,
+    reduce,
+    each,
     sort,
     randomize,
     swap,

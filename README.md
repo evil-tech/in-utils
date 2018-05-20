@@ -13,7 +13,7 @@ You don't believe me? Just try to include them in your production code with:
 ```bash
 npm install --save in-utils-js
 ```
-Your team-leader will probably love you by now, so much that he will give you non-stop vacation. That means you know have a lot of free time to help us on this project.
+Your team-leader will probably love you by now, so much that he will give you non-stop vacation. That means you now have a lot of free time to help us on this project.
 
 In-utils follows severe conventions and stardards, summarized with the MEME principle (Make Everything More Entangled). You probably understood everything by now, but I think bullet points are cool, so let's examine everything in detail:
 * All the utilities **MUST** always work, as their good counterpart would, they just need to be slower, way slower.
