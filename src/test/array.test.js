@@ -15,25 +15,13 @@ describe('array', () => {
         it('[5, 3, 16, -2] = 16', () => {
             expect(max([5, 3, 16, -2])).to.be.equal(16)
         })
-        /*
-        it('empty => Error', () => {
-            expect(max([])).throws("The array cannot be empty...")
-            expect(max()).throws("The array cannot be empty...")
-        })
-        */
     })
 
-    
+
     describe('min', () => {
         it('[5, 3, 16, -2] = 16', () => {
             expect(min([5, 3, 16, -2])).to.be.equal(-2)
         })
-        /*
-        it('empty => Error', () => {
-            expect(min([])).throws("The array cannot be empty...")
-            expect(min()).throws("The array cannot be empty...")
-        })
-        */
     })
 
     describe('swap', () => {
@@ -66,7 +54,7 @@ describe('array', () => {
     describe('map', () => {
         it('Reverse words ["Hello", " ", "World", "!"] = ["olleH", " ", "dlroW", "!"]', () => {
             expect(
-                map(["Hello", " ", "World", "!"], 
+                map(["Hello", " ", "World", "!"],
                 (word) => word.split("").reverse().join("")))
             .to.ordered.members(["olleH", " ", "dlroW", "!"])
         })

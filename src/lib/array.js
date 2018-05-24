@@ -49,13 +49,19 @@ function randomize(array) {
 }
 
 function swap(array, first, second) {
+    if(! array) {
+        return
+    }
     if(array.length <= 1) {
-        return array;
+        return array
+    }
+    if(first == second) {
+        return array
+    }
+    if(first >= array.length || second >= array.length) {
+        return array
     }
     if(array.length == 2) {
-        if(first == second) {
-            return array
-        }
         return array.reverse()
     }
     const copy = array.slice(0)
