@@ -1,3 +1,24 @@
+function diff(first, second, criteria = (item) => item) {
+    return [...filter(distinct(first, criteria), (item) => {
+        return ! find(second, undefined, (compareItem) => criteria(compareItem) == criteria(item))
+    }), ...filter(distinct(second, criteria), (item) => {
+        return ! find(first, undefined, (compareItem) => criteria(compareItem) == criteria(item))
+    })]
+}
+
+function distinct(array, criteria = (item) => item) {
+    return filter(array, (item, index) => {
+        const mappedArray = map(array, criteria)
+        const mappedValue = criteria(item)
+        const lastIndex = mappedArray.lastIndexOf(mappedValue)
+        return lastIndex == index
+    })
+}
+
+function find(array, itemToSearch, search = (item) => item == itemToSearch) {
+    return filter(array, item => search(item))[0]
+}
+
 function each(array, consumer) {
     map(array, consumer)
 }
@@ -16,7 +37,7 @@ function map(array, mapper) {
 function filter(array, filter) {
     const allowed = map(array, filter)
     const result = []
-    for(let i = 0; i < result.length; i++) {
+    for(let i = 0; i < array.length; i++) {
         if(allowed[i]) {
             result.push(array[i])
         }
@@ -110,7 +131,11 @@ function min(array, minValue = Number.MAX_VALUE) {
 }
 
 module.exports = {
+    diff,
+    find,
+    distinct,
     map,
+    filter,
     reduce,
     each,
     sort,

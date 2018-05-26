@@ -8,7 +8,11 @@ const swap = array.swap
 const sort = array.sort
 const each = array.each
 const reduce = array.reduce
+const filter = array.filter
 const map = array.map
+const find = array.find
+const distinct = array.distinct
+const diff = array.diff
 
 describe('array', () => {
     describe('max', () => {
@@ -73,6 +77,27 @@ describe('array', () => {
             expect(reduce(["Hello", " ", "World", "!"], (total, word) => {
                 return (total) ? (total + word) : word
             })).to.be.equal("Hello World!")
+        })
+    })
+
+    describe('filter', () => {
+        it('finds all even numbers in [2, 4, 5, 3, 1, 0, 2] = [2, 4, 0, 2]', () => {
+            expect(filter([2, 4, 5, 3, 1, 0, 2], (number) => number % 2 == 0)).to.ordered.members([2, 4, 0, 2])
+        })
+    })
+
+    describe('find', () => {
+        it('find 5 in [4, 3, 1, 5, 2]', () => {
+            expect(find([4, 3, 1, 5, 2], 5)).to.be.equal(5)
+        })
+        it('find first even number in [2, 4, 5, 3, 1, 0, 2] = 2', () => {
+            expect(find([2, 4, 5, 3, 1, 0, 2], undefined, search = (number) => number % 2 == 0)).to.be.equal(2)
+        })
+    })
+
+    describe('diff', () => {
+        it('diff of [5, 3, 2, 4] and [1, 3, 7, 7, 2] = (unordered) [5, 4, 1, 7]', () => {
+            expect(diff([5, 3, 2, 4], [1, 3, 7, 7, 2])).to.have.members([5, 4, 1, 7])
         })
     })
 })
