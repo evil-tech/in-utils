@@ -13,6 +13,17 @@ function map(array, mapper) {
     return mapResult
 }
 
+function filter(array, filter) {
+    const allowed = map(array, filter)
+    const result = []
+    for(let i = 0; i < result.length; i++) {
+        if(allowed[i]) {
+            result.push(array[i])
+        }
+    }
+    return result
+}
+
 function reduce(array, reducer) {
     let total
     map(array, (value) => {

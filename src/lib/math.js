@@ -18,8 +18,18 @@ function root(number, exponent) {
     }
 }
 
+function round(number, precision = 0) {
+    return 1 * number.toFixed(precision)
+}
+
+function ceil(number, precision = 0) {
+    return round(number, precision) + pow(10, -precision)
+}
+
 module.exports = {
     pow,
     root,
-    sqrt: (number) => root(number, 2)
+    sqrt: (number) => root(number, 2),
+    round,
+    floor: round
 };
