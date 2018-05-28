@@ -13,6 +13,7 @@ const map = array.map
 const find = array.find
 const distinct = array.distinct
 const diff = array.diff
+const compact = array.compact
 
 describe('array', () => {
     describe('max', () => {
@@ -88,16 +89,22 @@ describe('array', () => {
 
     describe('find', () => {
         it('find 5 in [4, 3, 1, 5, 2]', () => {
-            expect(find([4, 3, 1, 5, 2], 5)).to.be.equal(5)
+            expect(find([4, 3, 1, 5, 2], 5)).to.be.equal(3)
         })
         it('find first even number in [2, 4, 5, 3, 1, 0, 2] = 2', () => {
-            expect(find([2, 4, 5, 3, 1, 0, 2], undefined, search = (number) => number % 2 == 0)).to.be.equal(2)
+            expect(find([2, 4, 5, 3, 1, 0, 2], undefined, search = (number) => number % 2 == 0)).to.be.equal(0)
         })
     })
 
     describe('diff', () => {
         it('diff of [5, 3, 2, 4] and [1, 3, 7, 7, 2] = (unordered) [5, 4, 1, 7]', () => {
             expect(diff([5, 3, 2, 4], [1, 3, 7, 7, 2])).to.have.members([5, 4, 1, 7])
+        })
+    })
+
+    describe('compact', () => {
+        it('compact [4, undefined, 3, null, false, NaN] = [4, 3, 0, false]', () => {
+            expect(compact([4, undefined, 3, null, 0, false, NaN])).to.have.members([4, 3, false])
         })
     })
 })

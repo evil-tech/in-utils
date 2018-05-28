@@ -1,9 +1,14 @@
+function compact(array) {
+    const zeroValues = [undefined, null, NaN, -0, +0, 0]
+    return diff([...zeroValues, ...array], zeroValues)
+}
+
 function diff(first, second, criteria = (item) => item) {
-    return [...filter(distinct(first, criteria), (item) => {
-        return ! find(second, undefined, (compareItem) => criteria(compareItem) == criteria(item))
-    }), ...filter(distinct(second, criteria), (item) => {
-        return ! find(first, undefined, (compareItem) => criteria(compareItem) == criteria(item))
-    })]
+    return distinct([...filter(first, (item) => {
+        return find(second, undefined, (compareItem) => criteria(compareItem) === criteria(item)) < 0
+    }), ...filter(second, (item) => {
+        return find(first, undefined, (compareItem) => criteria(compareItem) === criteria(item)) < 0
+    })], criteria)
 }
 
 function distinct(array, criteria = (item) => item) {
@@ -15,8 +20,9 @@ function distinct(array, criteria = (item) => item) {
     })
 }
 
-function find(array, itemToSearch, search = (item) => item == itemToSearch) {
-    return filter(array, item => search(item))[0]
+function find(array, itemToSearch, search = (item) => item === itemToSearch) {
+    const items = filter(array, item => search(item))
+    return (items && items.length > 0) ? array.indexOf(items[0]) : -1
 }
 
 function each(array, consumer) {
@@ -131,6 +137,7 @@ function min(array, minValue = Number.MAX_VALUE) {
 }
 
 module.exports = {
+    compact,
     diff,
     find,
     distinct,
