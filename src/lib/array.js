@@ -1,6 +1,6 @@
 function compact(array) {
-    const zeroValues = [undefined, null, NaN, -0, +0, 0]
-    return diff([...zeroValues, ...array], zeroValues)
+    const falseyValues = [undefined, null, NaN, -0, +0, 0, false]
+    return diff([...falseyValues, ...array], falseyValues)
 }
 
 function diff(first, second, criteria = (item) => item) {

@@ -103,8 +103,8 @@ describe('array', () => {
     })
 
     describe('compact', () => {
-        it('compact [4, undefined, 3, null, false, NaN] = [4, 3, 0, false]', () => {
-            expect(compact([4, undefined, 3, null, 0, false, NaN])).to.have.members([4, 3, false])
+        it('compact [4, undefined, 3, null, false, NaN] = [4, 3]', () => {
+            expect(compact([4, undefined, 3, null, 0, false, NaN])).to.have.members([4, 3])
         })
     })
 })
