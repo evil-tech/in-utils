@@ -31,5 +31,6 @@ module.exports = {
     root,
     sqrt: (number) => root(number, 2),
     round,
-    floor: round
+    floor: round,
+    ceil
 };
