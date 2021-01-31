@@ -1,2 +1,8 @@
 tasks:
   - init: npm install
+
+vscode:
+  extensions:
+    - orta.vscode-jest@4.0.0-alpha.1:TuNngpN2TTsC/Ck1qhIwrg==
+    - hbenl.vscode-test-explorer@2.19.5:yg+hg6b1O51L7NliE9pc5Q==
+    - hbenl.vscode-mocha-test-adapter@2.9.1:DdHAFYKQzxZRfKUtk1XSeg==
