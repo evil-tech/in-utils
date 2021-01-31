@@ -2,24 +2,23 @@
   "name": "in-utils-js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "sadistic": "npm --slow_test_enabled=true test"
+    "sadistic": "npm --experimental-worker --slow_test_enabled=true test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/evil-tech/in-utils.git"
   },
-  "author": "AntoDev96",
+  "author": "TheGrizzlyDev",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/evil-tech/in-utils/issues"
   },
   "homepage": "https://github.com/evil-tech/in-utils#readme",
   "directories": {
-    "lib": "src/lib",
-    "test": "src/test"
+    "lib": "lib",
+    "test": "test"
   },
   "dependencies": {
     "chai": "^4.1.2"
@@ -28,6 +27,7 @@
     "mocha": "^5.2.0"
   },
   "mocha": {
-    "recursive": true
+    "recursive": true,
+    "timeout": false
   }
 }

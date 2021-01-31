@@ -1,7 +1,7 @@
 const expect = require('chai').expect
 const array = require('../lib/array')
-const itTakesAtLeast = require('./utils/test').itTakesAtLeast
-const TimeUtils = require('./utils/time')
+const { itTakesAtLeast } = require('./utils/test')
+const { minutes, seconds } = require('./utils/time')
 const max = array.max
 const min = array.min
 const swap = array.swap
@@ -51,20 +51,21 @@ describe('array', () => {
         it('sort ASC [43, 12, 88] = [12, 43, 88]', () => {
             expect(sort([43, 12, 88], false)).to.ordered.members([12, 43, 88])
         })
-        itTakesAtLeast(TimeUtils.minutes(2), "sort DESC [43, 12, 88, -22, 33] = [88, 43, 33, 12, -22]", () => {
+        itTakesAtLeast(minutes(1), "sort DESC [43, 12, 88, -22, 33] = [88, 43, 33, 12, -22]", () => {
             expect(sort([43, 12, 88, -22, 33])).to.ordered.members([88, 43, 33, 12, -22])
         })
     })
 
     describe('map', () => {
-        it('Reverse words ["Hello", " ", "World", "!"] = ["olleH", " ", "dlroW", "!"]', () => {
+        itTakesAtLeast(seconds(30), 'Reverse words ["Hello", " ", "World", "!"] = ["olleH", " ", "dlroW", "!"]', () => {
             expect(
                 map(["Hello", " ", "World", "!"],
                 (word) => word.split("").reverse().join("")))
             .to.ordered.members(["olleH", " ", "dlroW", "!"])
         })
 
-        itTakesAtLeast(TimeUtils.minutes(1), "Map to same value an array of 100000 elements", () => {
+        itTakesAtLeast(minutes(1), "Map to same value an array of 100000 elements", () => {
+            console.log("Plz print")
             let testArray = []
             for(let i = 0; i < 100000; i++) {
                 testArray.push(i)
@@ -74,7 +75,7 @@ describe('array', () => {
     })
 
     describe('reduce', () => {
-        it('Merge ["Hello", " ", "World", "!"] = "Hello World!"', () => {
+        itTakesAtLeast(minutes(1), 'Merge ["Hello", " ", "World", "!"] = "Hello World!"', () => {
             expect(reduce(["Hello", " ", "World", "!"], (total, word) => {
                 return (total) ? (total + word) : word
             })).to.be.equal("Hello World!")
@@ -82,7 +83,7 @@ describe('array', () => {
     })
 
     describe('filter', () => {
-        it('finds all even numbers in [2, 4, 5, 3, 1, 0, 2] = [2, 4, 0, 2]', () => {
+        itTakesAtLeast(minutes(1), 'finds all even numbers in [2, 4, 5, 3, 1, 0, 2] = [2, 4, 0, 2]', () => {
             expect(filter([2, 4, 5, 3, 1, 0, 2], (number) => number % 2 == 0)).to.ordered.members([2, 4, 0, 2])
         })
     })

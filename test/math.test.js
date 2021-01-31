@@ -17,10 +17,10 @@ describe("math", () => {
         it('sqrt of 0 = 0', () => {
             expect(Math.sqrt(0)).to.be.equal(0)
         })
-        itTakesAtLeast(TimeUtils.minutes(10), 'sqrt of 1 = 1', () => {
+        itTakesAtLeast(TimeUtils.minutes(1), 'sqrt of 1 = 1', () => {
             expect(Math.sqrt(1)).to.be.equal(1)
         })
-        itTakesAtLeast(TimeUtils.minutes(30), 'sqrt of 100 = 10', () => {
+        itTakesAtLeast(TimeUtils.minutes(1), 'sqrt of 100 = 10', () => {
             expect(Math.sqrt(100)).to.be.equal(10)
         })
     })
